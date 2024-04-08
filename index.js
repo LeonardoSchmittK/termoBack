@@ -11,9 +11,12 @@ app.use(cors());
 const banco = require("./wordsDatabase.js");
 
 app.get("/words/random", (req, res) => {
-  const randomQuestion = banco[Math.floor(Math.random() * banco.length)];
-  res.json({ word: randomQuestion });
-  console.log(randomQuestion);
+  const randomWord = banco[Math.floor(Math.random() * banco.length)];
+  res.json({ word: randomWord });
+});
+
+app.get("/words/total", (req, res) => {
+  res.json({ totalWords: banco.length });
 });
 
 app.listen(4000, () => {

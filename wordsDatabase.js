@@ -61,7 +61,7 @@ const words = [
 
   "desde",
 
-  "muito",
+  "coisa",
 
   "justo",
 
@@ -144,6 +144,10 @@ const words = [
   "brado",
 
   "prole",
+  "calvo",
+  "tribo",
+  "grito",
+  "brita",
 
   "crivo",
 
@@ -197,6 +201,24 @@ const words = [
 
   "valha",
 
+  "coala",
+
+  "tanso",
+
+  "panda",
+
+  "cinza",
+
+  "cache",
+
+  "fenda",
+
+  "fosco",
+
+  "tosco",
+
+  "muito",
+
   "denso",
 
   "criar",
@@ -243,7 +265,103 @@ const words = [
 
   "limbo",
 
-  "coisa",
+  "trono",
+
+  "palha",
+
+  "valsa",
+
+  "claro",
+
+  "melão",
+
+  "longo",
+
+  "dista",
+
+  "clero",
+
+  "banco",
+
+  "louça",
+
+  "feroz",
+
+  "navio",
+
+  "pedra",
+
+  "régua",
+
+  "broto",
+
+  "fruto",
+
+  "canto",
+
+  "vento",
+
+  "venda",
+
+  "colhe",
+
+  "folha",
+
+  "molho",
+
+  "corar",
+
+  "bater",
+
+  "couve",
+
+  "cobre",
+
+  "meios",
+
+  "tonto",
+
+  "zonzo",
+
+  "potro",
+
+  "pinto",
+
+  "neném",
+
+  "somar",
+
+  "litro",
+
+  "cetro",
+  "cedro",
+
+  "torre",
+
+  "pasto",
+
+  "ombro",
+
+  "tombo",
+
+  "susto",
+
+  "custo",
+  "furto",
+  "filha",
+
+  "busto",
+  "carta",
+  "corda",
+  "nitro",
+  "zinco",
+  "dente",
+  "tchau",
+  "cisto",
+  "tampa",
+  "lança",
+
+  "verso",
 
   "usura",
 
@@ -505,8 +623,6 @@ const words = [
 
   "ciúme",
 
-  "claro",
-
   "haste",
 
   "gente",
@@ -654,8 +770,6 @@ const words = [
   "torço",
 
   "anuir",
-
-  "verso",
 
   "cruel",
 
@@ -890,8 +1004,6 @@ const words = [
   "norma",
 
   "índio",
-
-  "tosco",
 
   "exame",
 
