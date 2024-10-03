@@ -20,7 +20,7 @@ app.get("/words/total", (req, res) => {
 
 app.post("/words/doesExist", async (req, res) => {
   const checkingWord = req.body.checkingWord;
-
+  console.log(req.body);
   async function isWordInFile(word, filePath) {
     try {
       const data = await fs.readFile(filePath, "utf8");
