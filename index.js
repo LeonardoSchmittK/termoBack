@@ -34,11 +34,13 @@ app.post("/words/doesExist", async (req, res) => {
 
   const exists = await isWordInFile(checkingWord, "words.txt");
 
-  if (exists) {
-    res.status(200).json({ word: checkingWord, doesExist: true });
-  } else {
-    res.status(404).json({ word: checkingWord, doesExist: false });
-  }
+  setTimeout(() => {
+    if (exists) {
+      res.status(200).json({ word: checkingWord, doesExist: true });
+    } else {
+      res.status(404).json({ word: checkingWord, doesExist: false });
+    }
+  }, 1000);
 });
 
 app.listen(4000, () => {
