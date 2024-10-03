@@ -7,7 +7,18 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const banco = require("./wordsDatabase.js");
+let banco = [];
+
+async function loadWords() {
+  try {
+    const data = await fs.readFile("words.txt", "utf8");
+    banco = data.split("\n");
+  } catch (err) {
+    console.error(`Error reading file: ${err}`);
+  }
+}
+
+loadWords();
 
 app.get("/words/random", (req, res) => {
   const randomWord = banco[Math.floor(Math.random() * banco.length)];
@@ -21,26 +32,14 @@ app.get("/words/total", (req, res) => {
 app.post("/words/doesExist", async (req, res) => {
   const checkingWord = req.body.checkingWord;
   console.log(req.body);
-  async function isWordInFile(word, filePath) {
-    try {
-      const data = await fs.readFile(filePath, "utf8");
-      const words = data.split("\n");
-      return words.includes(word);
-    } catch (err) {
-      console.error(`Error reading file: ${err}`);
-      return false;
-    }
+
+  const exists = banco.includes(checkingWord);
+
+  if (exists) {
+    res.status(200).json({ word: checkingWord, doesExist: true });
+  } else {
+    res.status(404).json({ word: checkingWord, doesExist: false });
   }
-
-  const exists = await isWordInFile(checkingWord, "words.txt");
-
-  setTimeout(() => {
-    if (exists) {
-      res.status(200).json({ word: checkingWord, doesExist: true });
-    } else {
-      res.status(404).json({ word: checkingWord, doesExist: false });
-    }
-  }, 1000);
 });
 
 app.listen(4000, () => {
