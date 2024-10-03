@@ -18,7 +18,7 @@ app.get("/words/total", (req, res) => {
   res.json({ totalWords: banco.length });
 });
 
-app.get("/words/doesExist", async (req, res) => {
+app.post("/words/doesExist", async (req, res) => {
   const checkingWord = req.body.checkingWord;
 
   async function isWordInFile(word, filePath) {
