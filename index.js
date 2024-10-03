@@ -1,7 +1,6 @@
 const express = require("express");
-const lodash = require("lodash");
 const cors = require("cors");
-const { v4: uuid } = require("uuid");
+const fs = require("fs/promises");
 
 const app = express();
 
@@ -17,6 +16,29 @@ app.get("/words/random", (req, res) => {
 
 app.get("/words/total", (req, res) => {
   res.json({ totalWords: banco.length });
+});
+
+app.get("/words/doesExist", async (req, res) => {
+  const checkingWord = req.body.checkingWord;
+
+  async function isWordInFile(word, filePath) {
+    try {
+      const data = await fs.readFile(filePath, "utf8");
+      const words = data.split("\n");
+      return words.includes(word);
+    } catch (err) {
+      console.error(`Error reading file: ${err}`);
+      return false;
+    }
+  }
+
+  const exists = await isWordInFile(checkingWord, "words.txt");
+
+  if (exists) {
+    res.status(200).json({ word: checkingWord, doesExist: true });
+  } else {
+    res.status(404).json({ word: checkingWord, doesExist: false });
+  }
 });
 
 app.listen(4000, () => {
