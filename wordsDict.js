@@ -1,4 +1,4 @@
-const words = `Aarao
+const wordsDict = `Aarao
 abaco
 abade
 abafa
@@ -5481,4 +5481,4 @@ zurre
 zurro
 `.split("\n");
 
-export default words;
+export default wordsDict;

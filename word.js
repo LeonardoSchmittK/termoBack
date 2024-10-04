@@ -1,5 +1,3 @@
-import Typo from "typo-js";
-
 const words = [
   "sagaz",
 

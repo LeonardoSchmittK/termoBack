@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import { promises as fs } from "fs";
-import words from "./words.js";
+import words from "./wordsDatabase.js";
+import wordsDict from "./wordsDict.js";
 const app = express();
 
 app.use(express.json());
@@ -20,6 +21,8 @@ app.use(cors());
 
 // loadWords();
 
+const banco = [...words];
+
 app.get("/words/random", (req, res) => {
   const randomWord = banco[Math.floor(Math.random() * banco.length)];
   res.json({ word: randomWord });
@@ -32,7 +35,7 @@ app.get("/words/total", (req, res) => {
 app.post("/words/doesExist", async (req, res) => {
   const checkingWord = req.body.checkingWord;
 
-  const exists = words.includes(checkingWord);
+  const exists = wordsDict.includes(checkingWord);
 
   if (exists) {
     res.status(200).json({ word: checkingWord, doesExist: true });
