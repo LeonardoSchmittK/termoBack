@@ -5481,4 +5481,4 @@ zurre
 zurro
 `.split("\n");
 
-export default wordsDict;
+module.exports = wordsDict;

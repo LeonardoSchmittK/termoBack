@@ -1,8 +1,8 @@
-import express from "express";
-import cors from "cors";
-import { promises as fs } from "fs";
-import words from "./wordsDatabase.js";
-import wordsDict from "./wordsDict.js";
+const express = require("express");
+const cors = require("cors");
+const fs = require("fs").promises;
+const words = require("./wordsDatabase.js");
+const wordsDict = require("./wordsDict.js");
 const app = express();
 
 app.use(express.json());

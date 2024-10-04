@@ -1078,4 +1078,4 @@ const words = [
   "oásis",
 ];
 
-export default words;
+module.exports = words;
