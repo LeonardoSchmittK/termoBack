@@ -1,24 +1,24 @@
-const express = require("express");
-const cors = require("cors");
-const fs = require("fs/promises");
-
+import express from "express";
+import cors from "cors";
+import { promises as fs } from "fs";
+import words from "./words.js";
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-let banco = [];
+// let banco = [];
 
-async function loadWords() {
-  try {
-    const data = await fs.readFile("words.txt", "utf8");
-    banco = data.split("\n");
-  } catch (err) {
-    console.error(`Error reading file: ${err}`);
-  }
-}
+// async function loadWords() {
+//   try {
+//     const data = await fs.readFile("words.txt", "utf8");
+//     banco = data.split("\n");
+//   } catch (err) {
+//     console.error(`Error reading file: ${err}`);
+//   }
+// }
 
-loadWords();
+// loadWords();
 
 app.get("/words/random", (req, res) => {
   const randomWord = banco[Math.floor(Math.random() * banco.length)];
@@ -31,9 +31,8 @@ app.get("/words/total", (req, res) => {
 
 app.post("/words/doesExist", async (req, res) => {
   const checkingWord = req.body.checkingWord;
-  console.log(req.body);
 
-  const exists = banco.includes(checkingWord);
+  const exists = words.includes(checkingWord);
 
   if (exists) {
     res.status(200).json({ word: checkingWord, doesExist: true });
